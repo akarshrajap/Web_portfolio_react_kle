@@ -1,0 +1,27 @@
+services:
+  # Express Backend Web Service
+  - type: web
+    name: portfolio-backend
+    env: node
+    plan: free
+    rootDirectory: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+
+  # React + Vite Frontend Static Site
+  - type: static
+    name: portfolio-frontend
+    plan: free
+    rootDirectory: frontend
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false

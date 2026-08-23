@@ -1,0 +1,320 @@
+/* Reset and Box Model */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Core Design System Variables */
+:root {
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  
+  /* Extreme font-weight contrast */
+  --weight-light: 200;
+  --weight-regular: 400;
+  --weight-bold: 800;
+  --weight-black: 900;
+  
+  /* Brutally minimalist color palette (No background colors or borders) */
+  --color-bg: #ffffff;
+  --color-text-main: #0a0a0a;
+  --color-text-muted: #555555;
+  --color-text-accent: #000000;
+  
+  /* Space scale for massive whitespace */
+  --space-xxs: 0.5rem;
+  --space-xs: 1rem;
+  --space-sm: 2rem;
+  --space-md: 4rem;
+  --space-lg: 8rem;
+  --space-xl: 12rem;
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  font-family: var(--font-family);
+  font-size: 1.05rem;
+  font-weight: var(--weight-light);
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout Wrappers */
+.app-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-md) 1.5rem var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Typography Hierarchy (Neo-grotesque bold contrast) */
+h1 {
+  font-size: 3.5rem;
+  font-weight: var(--weight-black);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-accent);
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: var(--weight-black);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-accent);
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xxs);
+  color: var(--color-text-accent);
+}
+
+p {
+  font-weight: var(--weight-light);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-main);
+}
+
+strong, b {
+  font-weight: var(--weight-bold);
+}
+
+/* Links & Interactive Elements - Strictly no borders or background colors */
+a {
+  color: var(--color-text-main);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  font-weight: var(--weight-regular);
+  transition: color 0.15s ease, text-decoration-thickness 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-text-accent);
+  text-decoration-thickness: 2px;
+}
+
+/* Brutalist Buttons (No background fill, no borders, purely text & hover size changes) */
+button, .btn {
+  background: none;
+  border: none;
+  color: var(--color-text-accent);
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+  transition: letter-spacing 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  letter-spacing: -0.02em;
+}
+
+button:hover, .btn:hover {
+  color: #333333;
+  letter-spacing: 0.02em;
+}
+
+button:disabled, .btn:disabled {
+  color: var(--color-text-muted);
+  text-decoration-color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* Nav Menu Styles */
+nav {
+  margin-bottom: var(--space-lg);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: var(--weight-bold);
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+/* Content List Blocks (Single-column structure, no lines or grids) */
+.list-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.list-item-meta {
+  font-size: 0.95rem;
+  font-weight: var(--weight-regular);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xxs);
+}
+
+/* Forms - Strictly no background color or borders. Just text fields with focus visual accent (e.g., text weight or large text) */
+.form-group {
+  margin-bottom: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+input, textarea {
+  background: none !important;
+  border: none !important;
+  border-bottom: 2px solid var(--color-text-main) !important; /* The only line allowed: input underlining */
+  border-radius: 0 !important;
+  color: var(--color-text-accent);
+  font-family: var(--font-family);
+  font-size: 1.2rem;
+  font-weight: var(--weight-light);
+  padding: var(--space-xxs) 0;
+  width: 100%;
+  outline: none;
+  transition: border-bottom-color 0.2s ease, font-weight 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  border-bottom-color: #888888 !important;
+  font-weight: var(--weight-regular);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Toast Success & Error styling - Typographic, no card block */
+.toast-msg {
+  font-weight: var(--weight-bold);
+  font-size: 1.15rem;
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  animation: fadeIn 0.4s ease;
+}
+
+.toast-success {
+  color: #000000; /* Black for success, fits Swiss style */
+}
+
+.toast-error {
+  color: #c00000; /* Intense red for error, high contrast */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Profile Picture styling - No borders or frames */
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+/* Skills list details styling */
+.skill-category {
+  margin-bottom: var(--space-md);
+}
+
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.skills-list li {
+  font-size: 1.15rem;
+  font-weight: var(--weight-light);
+}
+
+.skills-list li strong {
+  font-weight: var(--weight-bold);
+  display: inline-block;
+  width: 200px;
+}
+
+/* Projects custom listing */
+.project-card {
+  margin-bottom: var(--space-md);
+}
+
+.project-tags {
+  font-size: 0.9rem;
+  font-weight: var(--weight-regular);
+  color: var(--color-text-muted);
+  margin-top: var(--space-xxs);
+  word-spacing: 0.2em;
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .nav-links {
+    gap: var(--space-xs);
+  }
+  
+  .skills-list li strong {
+    display: block;
+    width: auto;
+    margin-bottom: 2px;
+  }
+}
