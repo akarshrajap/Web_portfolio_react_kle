@@ -15,9 +15,10 @@ services:
       - key: SUPABASE_ANON_KEY
         sync: false
 
-  # React + Vite Frontend Static Site
-  - type: static
+# React + Vite Frontend Static Site
+  - type: web
     name: portfolio-frontend
+    env: static
     plan: free
     rootDirectory: frontend
     buildCommand: npm install && npm run build
