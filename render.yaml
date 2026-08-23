@@ -4,7 +4,7 @@ services:
     name: portfolio-backend
     env: node
     plan: free
-    rootDirectory: backend
+    rootDir: backend
     buildCommand: npm install
     startCommand: npm start
     envVars:
@@ -20,7 +20,7 @@ services:
     name: portfolio-frontend
     runtime: static
     plan: free
-    rootDirectory: frontend
+    rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
