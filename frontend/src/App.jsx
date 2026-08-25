@@ -6,6 +6,8 @@ import About from './pages/About.jsx';
 import Skills from './pages/Skills.jsx';
 import Projects from './pages/Projects.jsx';
 import Contact from './pages/Contact.jsx';
+import Chatbot from './components/Chatbot.jsx';
+import Tests from './pages/Tests.jsx';
 
 function App() {
   return (
@@ -19,8 +21,10 @@ function App() {
             <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/tests" element={<Tests />} />
           </Routes>
         </main>
+        <Chatbot />
       </div>
     </Router>
   );

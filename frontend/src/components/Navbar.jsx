@@ -30,6 +30,11 @@ function Navbar() {
             Contact
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/tests" className={({ isActive }) => isActive ? 'active' : ''} id="nav-tests">
+            Tests
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

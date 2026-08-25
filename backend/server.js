@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
+import { chatHandler } from './chatHandler.js';
+import { testProjectHandler } from './testHandler.js';
 
 // Load environment variables
 dotenv.config();
@@ -104,6 +106,12 @@ app.post('/api/contact', async (req, res) => {
     });
   }
 });
+
+// Chatbot endpoint
+app.post('/api/chat', chatHandler);
+
+// Project test endpoint
+app.post('/api/test-project', testProjectHandler);
 
 // Start the server
 app.listen(PORT, () => {
